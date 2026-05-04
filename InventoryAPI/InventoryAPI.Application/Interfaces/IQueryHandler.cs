@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace InventoryAPI.Application.Interfaces
+﻿namespace InventoryAPI.Application.Interfaces
 {
     public interface IQueryHandler<in TQuery,TResult>
     {
