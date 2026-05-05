@@ -20,6 +20,8 @@ namespace InventoryAPI.Infrastructure
 
             //repositories
             services.AddScoped<IStockRepository, StockRepository>();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IWarehouseRepository, WarehouseRepository>();
 
             return services;
         }
