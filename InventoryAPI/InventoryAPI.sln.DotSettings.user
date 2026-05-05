@@ -1,0 +1,7 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=fa111710_002D7dd7_002D4b07_002D8f08_002D77bfce70f8c9/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="HandleAsync_WhenStockDoesNotExists_ShouldCreateNewStockAndStockMovement" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;TestAncestor&gt;&#xD;
+    &lt;TestId&gt;xUnit::CC16694F-2D8A-7B11-460B-89C46CBD08F9::net10.0::InventoryAPI.Application.Tests.Commands.AddStock.AddStockCommandHandlerTests.HandleAsync_WhenStockDoesNotExists_ShouldCreateNewStockAndStockMovement&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;xUnit::CC16694F-2D8A-7B11-460B-89C46CBD08F9::net10.0::InventoryAPI.Application.Tests.Commands.TransferStock.TransferStockCommandHandlerTests.HandleAsync_Should_Rollback_Transaction_When_Stock_Is_Insufficient&lt;/TestId&gt;&#xD;
+  &lt;/TestAncestor&gt;&#xD;
+&lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

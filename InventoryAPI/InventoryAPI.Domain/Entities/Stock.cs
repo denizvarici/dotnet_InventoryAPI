@@ -19,15 +19,15 @@ namespace InventoryAPI.Domain.Entities
 
         private Stock(){}
 
-        public static Stock Create(Guid productId, Guid warehouseId, int lowStockThreshold = 10, int initialQuantity = 0)
+        public static Stock Create(Guid productId, Guid warehouseId, int initialQuantity = 0, int lowStockThreshold = 10)
         {
             return new Stock()
             {
                 Id = Guid.NewGuid(),
                 ProductId = productId,
                 WarehouseId = warehouseId,
-                LowStockThreshold = lowStockThreshold,
                 Quantity = initialQuantity,
+                LowStockThreshold = lowStockThreshold,
                 LastUpdated = DateTime.UtcNow
             };
         }
