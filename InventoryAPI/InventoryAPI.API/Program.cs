@@ -1,4 +1,5 @@
 using HotChocolate.AspNetCore;
+using HotChocolate.Execution.Processing;
 using InventoryAPI.API.GraphQL;
 using InventoryAPI.Application;
 using InventoryAPI.Infrastructure;
@@ -13,7 +14,13 @@ builder.Services.AddApplication(builder.Configuration);
 
 
 builder.Services.AddControllers();
-builder.Services.AddGraphQLServer().AddQueryType<Query>();
+builder.Services.AddGraphQLServer()
+    .AddQueryType<Query>()
+    .AddSubscriptionType<Subscription>() 
+    .AddInMemorySubscriptions() 
+    .ModifyRequestOptions(opt => opt.IncludeExceptionDetails = builder.Environment.IsDevelopment());
+
+
 // Learn more about configuring OpenAPI at https://aka.ms/aspnet/openapi
 builder.Services.AddOpenApi();
 
@@ -34,6 +41,7 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+app.UseWebSockets();
 app.MapGraphQL().WithOptions(options =>
 {
     options.Tool.Enable = app.Environment.IsDevelopment();
