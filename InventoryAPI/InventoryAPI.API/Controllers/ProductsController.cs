@@ -1,6 +1,5 @@
 ﻿using InventoryAPI.Application.Commands.CreateProduct;
-using InventoryAPI.Domain.Entities;
-using Microsoft.AspNetCore.Http;
+using InventoryAPI.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryAPI.API.Controllers
@@ -9,9 +8,9 @@ namespace InventoryAPI.API.Controllers
     [ApiController]
     public class ProductsController : ControllerBase
     {
-        private readonly CreateProductCommandHandler _createHandler;
+        private readonly ICommandHandler<CreateProductCommand,Guid> _createHandler;
 
-        public ProductsController(CreateProductCommandHandler createHandler)
+        public ProductsController(ICommandHandler<CreateProductCommand, Guid> createHandler)
         {
             _createHandler = createHandler;
         }

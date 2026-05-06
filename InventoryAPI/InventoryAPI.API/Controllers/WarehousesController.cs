@@ -1,4 +1,5 @@
 ﻿using InventoryAPI.Application.Commands.CreateWarehouse;
+using InventoryAPI.Application.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 
 namespace InventoryAPI.API.Controllers
@@ -7,9 +8,9 @@ namespace InventoryAPI.API.Controllers
     [ApiController]
     public class WarehousesController : ControllerBase
     {
-        private readonly CreateWarehouseCommandHandler _createHandler;
+        private readonly ICommandHandler<CreateWarehouseCommand,Guid> _createHandler;
 
-        public WarehousesController(CreateWarehouseCommandHandler createHandler)
+        public WarehousesController(ICommandHandler<CreateWarehouseCommand, Guid> createHandler)
         {
             _createHandler = createHandler;
         }

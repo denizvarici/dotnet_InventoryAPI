@@ -12,7 +12,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace InventoryAPI.Infrastructure.Migrations
 {
     [DbContext(typeof(InventoryDbContext))]
-    [Migration("20260504151229_InitialCreate")]
+    [Migration("20260506114714_InitialCreate")]
     partial class InitialCreate
     {
         /// <inheritdoc />
