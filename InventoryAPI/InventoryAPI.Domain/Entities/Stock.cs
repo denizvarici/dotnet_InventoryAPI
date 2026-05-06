@@ -3,7 +3,7 @@ using InventoryAPI.Domain.Exceptions;
 
 namespace InventoryAPI.Domain.Entities
 {
-    public class Stock
+    public class Stock : IHasDomainEvents
     {
         public Guid Id { get; private set; }
         public Guid ProductId { get; private set; }
@@ -58,5 +58,9 @@ namespace InventoryAPI.Domain.Entities
             LastUpdated = DateTime.UtcNow;
         }
 
+        public void ClearDomainEvents()
+        {
+            _events.Clear();
+        }
     }
 }

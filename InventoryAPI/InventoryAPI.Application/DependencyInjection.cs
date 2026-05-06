@@ -2,9 +2,12 @@
 using InventoryAPI.Application.Commands.CreateProduct;
 using InventoryAPI.Application.Commands.CreateWarehouse;
 using InventoryAPI.Application.Commands.TransferStock;
+using InventoryAPI.Application.Event;
+using InventoryAPI.Application.Event.Handlers;
 using InventoryAPI.Application.Interfaces;
 using InventoryAPI.Application.Queries.GetLowStockProducts;
 using InventoryAPI.Application.Queries.GetStockReport;
+using InventoryAPI.Domain.Events;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -23,6 +26,13 @@ public static class DependencyInjection
         //query handlers registrationn
         services.AddScoped<IQueryHandler<GetStockReportQuery, IEnumerable<StockReportDto>>, GetStockReportQueryHandler>();
         services.AddScoped<IQueryHandler<GetLowStockProductsQuery, IEnumerable<LowStockProductDto>>, GetLowStockProductsQueryHandler>();
+
+        //domain event handlers
+        services.AddScoped<IDomainEventDispatcher, DomainEventDispatcher>();
+        services.AddScoped<IDomainEventHandler<LowStockDetectedEvent>, LowStockDetectedEventHandler>();
+
         return services;
+
+        
     }
 }
