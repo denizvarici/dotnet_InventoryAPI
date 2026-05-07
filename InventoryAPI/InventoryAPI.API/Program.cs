@@ -48,3 +48,5 @@ app.MapGraphQL().WithOptions(options =>
 });
 
 app.Run();
+
+public partial class Program { }

@@ -17,7 +17,7 @@ public class LowStockDetectedEventHandler : IDomainEventHandler<LowStockDetected
 
     public async Task HandleAsync(LowStockDetectedEvent domainEvent, CancellationToken cancellationToken = default)
     {
-        var alertMessage = "ALERT: {WarehouseId} on warehouse, {ProductId} product is below threshold! Remaining: {Quantity}";
+        var alertMessage = $"ALERT: {domainEvent.WarehouseId} on warehouse, {domainEvent.ProductId} product is below threshold! Remaining: {domainEvent.CurrentQuantity}";
         _logger.LogWarning(alertMessage,
             domainEvent.WarehouseId, domainEvent.ProductId, domainEvent.CurrentQuantity);
         await _eventSender.SendAsync("LowStockAlert", alertMessage, cancellationToken);
